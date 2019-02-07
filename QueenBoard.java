@@ -11,10 +11,15 @@ public class QueenBoard{
   }
   private boolean addQueen(int r, int c)}{
     board[r,c]=-1;
-    for(int i=0;i<board.length;i++){
-      board[i][c]+=1
+    for(int i=1;i<board.length;i++){
+      board[r+i][c]+=1;
     }
-
+    for(int i=1;i<board[r].length;i++){
+      board[r][c+i]+=1;
+    }
+    for(int i=1;i<board[r].length;i++){
+      board[r+i][c+i]+=1;
+    }
   }
   private boolean removeQueen(int r, int c)
   public String toString(){}
