@@ -33,9 +33,22 @@ public class QueenBoard{
     String str="";
     for(int i=0;i<board.length;i++){
       for(int l=0;l<board[r].length;l++){
-        board[i][l]==0;
+        if(board[i][l]==-1){
+          str+="Q";
+        }
+        if(board[i][l]!=-1){
+          str+=board[i][l];
+        }
+        if(l<board[r].length-1){
+          str+=" ";
+        }
+        if(l>=board[r].length-1){
+          str+="\n";
+        }
+
       }
     }
+    return str;
   }
   public boolean solve(){}
   public int countSolutions(){}
