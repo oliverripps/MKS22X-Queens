@@ -31,7 +31,7 @@ public class QueenBoard{
 
   public boolean removeQueen(int r, int c){
     if(board[r][c]==-1){
-      board[r][c]==0;
+      board[r][c]=0;
       for(int i=1;i<board.length-r;i++){
         board[r+i][c]-=1;
       }
@@ -47,7 +47,8 @@ public class QueenBoard{
       return false;
     }
   }
-  }
+
+  
   public String toString(){
     String str="";
     for(int i=0;i<board.length;i++){
