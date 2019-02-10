@@ -72,12 +72,22 @@ public class QueenBoard{
   }
 
 
-  public boolean solve(int r, int c, int current, int target){
+  public boolean solve(int r, int c, int current, int goal){
+    if(goal==current){
+      return true;
+    }
+    if(addQueen(r,c)({
+      add
+      if(addQueen(r,c+1)){
+        if(addQueen(r,c))
+      }
+    }
+
 
 
   }
   public boolean solve(){
-    return(solve(0,0,1,board.length));
+    return(solve(0,0,0,board.length));
 
   }
   public int countSolutions(){
