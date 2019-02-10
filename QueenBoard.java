@@ -13,15 +13,15 @@ public class QueenBoard{
   public boolean addQueen(int r, int c){//make private
     if(board[r][c]==0){
       board[r][c]=-1;
-      /*for(int i=1;i<board.length-1;i++){
+      for(int i=1;i<board.length-r;i++){
         board[r+i][c]+=1;
       }
-      for(int i=1;i<board[r].length;i++){
+      for(int i=1;i<board[r].length-c;i++){
         board[r][c+i]+=1;
       }
-      for(int i=1;i<board[r].length;i++){
+      for(int i=1;i<board[r].length-c;i++){
         board[r+i][c+i]+=1;
-      }*/
+      }
     return true;
   }
     else{
