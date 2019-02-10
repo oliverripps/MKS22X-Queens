@@ -48,7 +48,7 @@ public class QueenBoard{
     }
   }
 
-  
+
   public String toString(){
     String str="";
     for(int i=0;i<board.length;i++){
@@ -71,8 +71,19 @@ public class QueenBoard{
     return str;
   }
 
-  /*public boolean solve(){}
-  public int countSolutions(){}*/
+
+  public boolean solve(int r, int c, int current, int target){
+
+
+  }
+  public boolean solve(){
+    return(solve(0,0,1,board.length));
+
+  }
+  public int countSolutions(){
+
+  }
+}
 
 
 
