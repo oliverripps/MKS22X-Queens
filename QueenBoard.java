@@ -82,18 +82,21 @@ public class QueenBoard{
         if(addQueen(r,c))
       }
     }*/
-    boolean solveR(int col)
-       if col is past end of board:
-          return true
-       for each row:
-           if addQueen:
-               if solveR(col+1):
-                   return true
-               removeQueen
-       return false
-
-
+  boolean solveR(int col){
+    if(col>=board.size){
+          return true;
+        }
+    for(int i=0;i<board.size;i++){
+      if(addqueen(i,col)){
+        if(solveR(col+1)){
+          return true;
+        }
+        removeQueen(i,col);
+      }
+    }
+    return false;
   }
+  
   public boolean solve(){
     return(solve(0,0,0,board.length));
 
