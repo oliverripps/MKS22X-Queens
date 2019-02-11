@@ -111,8 +111,18 @@ public class QueenBoard{
       count++;
     }
     else{
+      for(int i=0;i<size;i++){
+        if(addQueen(i,col)){
+          if(solveR(col+1)){
+            return true;
+        }
+          removeQueen(i,col);
+      }
+    }
+      return false;
+  }
 
-      
+
     }
 
   }
