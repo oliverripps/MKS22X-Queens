@@ -12,7 +12,7 @@ public class QueenBoard{
     }
   }
 
-  public boolean addQueen(int r, int c){//make private
+  private boolean addQueen(int r, int c){//make private
     if(r>size-1 || c>size-1){
       return false;
     }
@@ -29,13 +29,6 @@ public class QueenBoard{
           board[cross][i]+=1;
         }
         }
-      /*for(int i=1;i<size-r-1;i++){
-        System.out.println(r);
-        System.out.println(c);
-        System.out.println(i);
-        System.out.println(r+i + "," + c);
-        board[r+i][c+i]+=1;
-      }*/
     return true;
   }
     else{
@@ -43,7 +36,7 @@ public class QueenBoard{
     }
   }
 
-  public boolean removeQueen(int r, int c){
+  private boolean removeQueen(int r, int c){
     if(r>size-1 || c>size-1){
       return false;
     }
@@ -60,9 +53,6 @@ public class QueenBoard{
           board[cross][i]-=1;
         }
       }
-      /*for(int i=1;i<size-c;i++){
-        board[r+i][c+i]-=1;
-      }*/
     return true;
   }
     else{
@@ -93,17 +83,6 @@ public class QueenBoard{
     return str;
   }
 
-
-  /*public boolean solve(int r, int c, int current, int goal){
-    if(goal==current){
-      return true;
-    }
-    if(addQueen(r,c)({
-      add
-      if(addQueen(r,c+1)){
-        if(addQueen(r,c))
-      }
-    }*/
   private boolean solveR(int col){
     if(col>=size){
           return true;
@@ -126,7 +105,9 @@ public class QueenBoard{
   }
   /*public int countSolutions(){
 
+  }*/
+  private void clear(){
+    int[][] b = new int[size][size];
+    board=b;
   }
-
-  clear()*/
 }
