@@ -104,7 +104,8 @@ public class QueenBoard{
     return(solveR(0));
   }
   public int countSolutions(){
-    countSolutionsH(0,0);
+    return (countSolutionsH(0,0));
+
   }
   public int countSolutionsH(int col, int count){
     if(col==size){
@@ -116,18 +117,14 @@ public class QueenBoard{
           if(solveR(col+1)){
             count++;
           }
-          removeQueen(row,col);
+          removeQueen(i,col);
         }
       }
     }
       return count;
   }
 
-
-    }
-
-  }
-  private void clear(){
+  public void clear(){
     int[][] b = new int[size][size];
     board=b;
   }
