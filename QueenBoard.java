@@ -82,13 +82,14 @@ public class QueenBoard{
         if(addQueen(r,c))
       }
     }*/
-  boolean solveR(int col){
-    if(col>=board.size){
+  private boolean solveR(int col,int size){
+    if(col>=size){
           return true;
         }
-    for(int i=0;i<board.size;i++){
-      if(addqueen(i,col)){
-        if(solveR(col+1)){
+    System.out.println(toString());
+    for(int i=0;i<size;i++){
+      if(addQueen(i,col)){
+        if(solveR(col+1,size)){
           return true;
         }
         removeQueen(i,col);
@@ -98,19 +99,9 @@ public class QueenBoard{
   }
 
   public boolean solve(){
-    return(solveR(0));
+    return(solveR(0,board.length));
   }
   /*public int countSolutions(){
 
   }*/
-}
-
-
-
-
-
-
-
-
-
 }
