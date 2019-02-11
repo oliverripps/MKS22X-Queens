@@ -13,6 +13,7 @@ public class QueenBoard{
   }
 
   public boolean addQueen(int r, int c){//make private
+    System.out.println("r:"+ r);
     if(board[r][c]==0){
       board[r][c]=-1;
       for(int i=1;i<board.length-r;i++){
@@ -22,6 +23,7 @@ public class QueenBoard{
         board[r][c+i]+=1;
       }
       for(int i=1;i<board[r].length-c;i++){
+        System.out.println(r+i + "," + c+i);
         board[r+i][c+i]+=1;
       }
     return true;
@@ -88,7 +90,7 @@ public class QueenBoard{
     if(col>=size){
           return true;
         }
-    System.out.println(toString());
+    System.out.println(col);
     for(int i=0;i<size;i++){
       if(addQueen(i,col)){
         if(solveR(col+1)){
@@ -105,5 +107,7 @@ public class QueenBoard{
   }
   /*public int countSolutions(){
 
-  }*/
+  }
+
+  clear()*/
 }
