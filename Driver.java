@@ -13,7 +13,8 @@ public class Driver{
     System.out.println(b.toString());
     b.solve();
     System.out.println(b.toString());
-
+    b.clear();
+    System.out.println(b.countSolutions());
 
 
 

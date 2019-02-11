@@ -114,12 +114,13 @@ public class QueenBoard{
       for(int i=0;i<size;i++){
         if(addQueen(i,col)){
           if(solveR(col+1)){
-            return true;
+            count++;
+          }
+          removeQueen(row,col);
         }
-          removeQueen(i,col);
       }
     }
-      return false;
+      return count;
   }
 
 
