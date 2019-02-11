@@ -103,9 +103,13 @@ public class QueenBoard{
   public boolean solve(){
     return(solveR(0));
   }
-  /*public int countSolutions(){
+  public int countSolutions(){
+    countSolutionsH(0,0);
+  }
+  public int countSolutionsH(int col, int count){
 
-  }*/
+
+  }
   private void clear(){
     int[][] b = new int[size][size];
     board=b;
