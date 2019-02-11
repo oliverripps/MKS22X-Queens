@@ -96,14 +96,13 @@ public class QueenBoard{
     }
     return false;
   }
-  
+
   public boolean solve(){
-    return(solve(0,0,0,board.length));
-
+    return(solveR(0));
   }
-  public int countSolutions(){
+  /*public int countSolutions(){
 
-  }
+  }*/
 }
 
 
