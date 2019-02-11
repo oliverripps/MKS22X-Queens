@@ -12,6 +12,7 @@ public class Driver{
     b.addQueen(2,7);
     System.out.println(b.toString());*/
     b.solve();
+    b.toString();
 
 
 

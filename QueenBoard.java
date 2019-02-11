@@ -13,19 +13,29 @@ public class QueenBoard{
   }
 
   public boolean addQueen(int r, int c){//make private
-    System.out.println("r:"+ r);
+    if(r>size-1 || c>size-1){
+      return false;
+    }
     if(board[r][c]==0){
       board[r][c]=-1;
-      for(int i=1;i<board.length-r;i++){
+      int cross = r;
+      for(int i=1;i<size-r;i++){
         board[r+i][c]+=1;
       }
-      for(int i=1;i<board[r].length-c;i++){
-        board[r][c+i]+=1;
-      }
-      for(int i=1;i<board[r].length-c;i++){
-        System.out.println(r+i + "," + c+i);
+      for(int i=c+1;i<size;i++){
+        board[r][i]+=1;
+        if(cross<size-1){
+          cross+=1;
+          board[cross][i]+=1;
+        }
+        }
+      /*for(int i=1;i<size-r-1;i++){
+        System.out.println(r);
+        System.out.println(c);
+        System.out.println(i);
+        System.out.println(r+i + "," + c);
         board[r+i][c+i]+=1;
-      }
+      }*/
     return true;
   }
     else{
@@ -34,17 +44,25 @@ public class QueenBoard{
   }
 
   public boolean removeQueen(int r, int c){
+    if(r>size-1 || c>size-1){
+      return false;
+    }
     if(board[r][c]==-1){
       board[r][c]=0;
-      for(int i=1;i<board.length-r;i++){
+      int cross = r;
+      for(int i=1;i<size-r;i++){
         board[r+i][c]-=1;
       }
-      for(int i=1;i<board[r].length-c;i++){
-        board[r][c+i]-=1;
+      for(int i=c+1;i<size;i++){
+        board[r][i]-=1;
+        if(cross<size-1){
+          cross+=1;
+          board[cross][i]-=1;
+        }
       }
-      for(int i=1;i<board[r].length-c;i++){
+      /*for(int i=1;i<size-c;i++){
         board[r+i][c+i]-=1;
-      }
+      }*/
     return true;
   }
     else{
@@ -90,17 +108,18 @@ public class QueenBoard{
     if(col>=size){
           return true;
         }
-    System.out.println(col);
-    for(int i=0;i<size;i++){
-      if(addQueen(i,col)){
-        if(solveR(col+1)){
-          return true;
+    else{
+      for(int i=0;i<size;i++){
+        if(addQueen(i,col)){
+          if(solveR(col+1)){
+            return true;
         }
-        removeQueen(i,col);
+          removeQueen(i,col);
       }
     }
-    return false;
+      return false;
   }
+}
 
   public boolean solve(){
     return(solveR(0));
