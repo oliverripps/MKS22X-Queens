@@ -72,7 +72,7 @@ public class QueenBoard{
   }
 
 
-  public boolean solve(int r, int c, int current, int goal){
+  /*public boolean solve(int r, int c, int current, int goal){
     if(goal==current){
       return true;
     }
@@ -81,8 +81,16 @@ public class QueenBoard{
       if(addQueen(r,c+1)){
         if(addQueen(r,c))
       }
-    }
-
+    }*/
+    boolean solveR(int col)
+       if col is past end of board:
+          return true
+       for each row:
+           if addQueen:
+               if solveR(col+1):
+                   return true
+               removeQueen
+       return false
 
 
   }
