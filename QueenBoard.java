@@ -107,7 +107,13 @@ public class QueenBoard{
     countSolutionsH(0,0);
   }
   public int countSolutionsH(int col, int count){
+    if(col==size){
+      count++;
+    }
+    else{
 
+      
+    }
 
   }
   private void clear(){
