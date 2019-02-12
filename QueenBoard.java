@@ -106,6 +106,7 @@ public class QueenBoard{
     }
     return(solveR(0));
   }
+
   public int countSolutions(){
     if(!check()){
       throw new IllegalStateException();
@@ -115,8 +116,8 @@ public class QueenBoard{
   }
 
   private boolean check(){
-    for(int i==0;i<size;i++){
-      for(int l==0;l<size;l++){
+    for(int i=0;i<size;i++){
+      for(int l=0;l<size;l++){
         if(board[i][l]!=0){
           return false;
         }
@@ -125,37 +126,22 @@ public class QueenBoard{
     return true;
   }
   public int countSolutionsH(int col){
-    int c=0;
     if(col>=size){
       return 1;
     }
     else{
+      int c=0;
       for(int i=0;i<size;i++){
         if(addQueen(i,col)){
-          c+=CountSolutionsH(col+1);
+          c+=countSolutionsH(col+1);
           removeQueen(i,col);
         }
       }
+      clear();
+      return c;
     }
-    clear();
-    return c;
   }
 
-  private int countSolutionsH(int col){
-    if(col>=size){
-          count++;
-        }
-    for(int i=0;i<size;i++){
-      if(addQueen(i,col)){
-        if(solveR(col+1)){
-          return true;
-        }
-        removeQueen(i,col);
-      }
-    }
-    return false;
-  }
-}
 
   public void clear(){
     int[][] b = new int[size][size];
