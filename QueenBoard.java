@@ -15,43 +15,36 @@ public class QueenBoard{
   private boolean addQueen(int r, int c){
     if(board[r][c]==0){
       board[r][c]=-1;
-      for(int i=0;i<size;i++){
-        if(r+1+i<size){
-          board[r+1+i][c]+=1;
+	    for(int i=1;c+i<size;i++){
+        board[r][c+i]+=1;
+        if(r+i<size){
+          board[r+i][c+i]+=1;
         }
-        if(r+1+i<size && c-1-i >= 0){
-            board[r+1+i][c-1-i]+=1;
-          }
-        if(r+1+i<size && c+1+i < size){
-              board[r+1+i][c+1+i]+=1;
-          }
-        }
-    return true;
-  }
-    else{
-      return false;
+  		  if (r-i>=0){
+          board[r-i][c+i]+=1;
+  		}
     }
+      return true;
+	  }
+    return false;
   }
 
+
   private boolean removeQueen(int r, int c){
-    if(board[r][c]==-1){
+    if (board[r][c]==-1){
       board[r][c]=0;
-      for(int i=0;i<size;i++){
-        if(r+1+i<size){
-          board[r+1+i][c]-=1;
+	    for(int i=1;c+i<size;i++){
+        board[r][c+i]-=1;
+        if(r+i<size){
+          board[r+i][c+i]-=1;
         }
-        if(r+1+i<size && c-1-i >= 0){
-            board[r+1+i][c-1-i]-=1;
-          }
-        if(r+1+i<size && c+1+i < size){
-              board[r+1+i][c+1+i]-=1;
-          }
-        }
-    return true;
-  }
-    else{
-      return false;
+  		  if (r-i>=0){
+          board[r-i][c+i]-=1;
+  		}
     }
+      return true;
+	  }
+    return false;
   }
 
 
