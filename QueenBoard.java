@@ -129,18 +129,17 @@ public class QueenBoard{
     if(col>=size){
       return 1;
     }
-    else{
-      int c=0;
-      for(int i=0;i<size;i++){
-        if(addQueen(i,col)){
-          c+=countSolutionsH(col+1);
-        }
-        removeQueen(i,col);
+    int c=0;
+    for(int i=0;i<size;i++){
+      if(addQueen(i,col)){
+        c+=countSolutionsH(col+1);
       }
-      clear();
-      return c;
+      removeQueen(i,col);
+      }
+    clear();
+    return c;
     }
-  }
+  
 
 
   public void clear(){
