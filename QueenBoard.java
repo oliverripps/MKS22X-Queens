@@ -98,7 +98,9 @@ public class QueenBoard{
     if(!check()){
       throw new IllegalStateException();
     }
-    return (countSolutionsH(0));
+    int c=countSolutionsH(0);
+    clear();
+    return c;
 
   }
 
@@ -123,7 +125,6 @@ public class QueenBoard{
         removeQueen(i,col);
       }
     }
-    clear();
     return c;
     }
 
