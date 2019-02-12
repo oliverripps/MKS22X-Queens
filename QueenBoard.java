@@ -22,6 +22,9 @@ public class QueenBoard{
       for(int i=1;i<size-r;i++){
         board[r+i][c]+=1;
       }
+      for(int i=1;i<r+1;i++){
+        board[r-i][c]+=1;
+      }
       for(int i=c+1;i<size;i++){
         board[r][i]+=1;
         if(cross<size-1){
@@ -29,6 +32,16 @@ public class QueenBoard{
           board[cross][i]+=1;
         }
         }
+        for(int i=c-1;i>0;i--){
+          board[r][i]+=1;
+          if(cross>0){
+            cross-=1;
+            board[cross][i]+=1;
+          }
+          }
+      /*for(int i = 0; r - i >= 0 && c + i <size; i++){ //
+        board[r-i][c+i] += 1;
+      }*/
     return true;
   }
     else{
@@ -46,13 +59,24 @@ public class QueenBoard{
       for(int i=1;i<size-r;i++){
         board[r+i][c]-=1;
       }
+      for(int i=1;i<r+1;i++){
+        board[r-i][c]-=1;
+      }
       for(int i=c+1;i<size;i++){
         board[r][i]-=1;
         if(cross<size-1){
           cross+=1;
           board[cross][i]-=1;
         }
-      }
+        }
+        for(int i=c-1;i>0;i--){
+          board[r][i]-=1;
+          if(cross>0){
+            cross-=1;
+            board[cross][i]-=1;
+          }
+          }
+        }
     return true;
   }
     else{
@@ -126,20 +150,20 @@ public class QueenBoard{
     return true;
   }
   public int countSolutionsH(int col){
+    int c=0;
     if(col>=size){
       return 1;
     }
-    int c=0;
     for(int i=0;i<size;i++){
       if(addQueen(i,col)){
         c+=countSolutionsH(col+1);
+        removeQueen(i,col);
       }
-      removeQueen(i,col);
-      }
+    }
     clear();
     return c;
     }
-  
+
 
 
   public void clear(){
