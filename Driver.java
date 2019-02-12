@@ -1,6 +1,6 @@
 public class Driver{
   public static void main(String[] args){
-    QueenBoard b = new QueenBoard(8);
+    QueenBoard b = new QueenBoard(9);
     /*b.addQueen(0,0);
     System.out.println(b.toString());
     b.addQueen(1,2);
@@ -15,6 +15,7 @@ public class Driver{
     System.out.println(b.toString());
     b.clear();
     System.out.println(b.countSolutions());
+    System.out.println(b.toString());
 
 
 
