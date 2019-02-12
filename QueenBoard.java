@@ -101,9 +101,15 @@ public class QueenBoard{
 }
 
   public boolean solve(){
+    if(!check()){
+      throw new IllegalStateException();
+    }
     return(solveR(0));
   }
   public int countSolutions(){
+    if(!check()){
+      throw new IllegalStateException();
+    }
     return (countSolutionsH(0));
 
   }
@@ -131,8 +137,25 @@ public class QueenBoard{
         }
       }
     }
+    clear();
     return c;
   }
+
+  private int countSolutionsH(int col){
+    if(col>=size){
+          count++;
+        }
+    for(int i=0;i<size;i++){
+      if(addQueen(i,col)){
+        if(solveR(col+1)){
+          return true;
+        }
+        removeQueen(i,col);
+      }
+    }
+    return false;
+  }
+}
 
   public void clear(){
     int[][] b = new int[size][size];
