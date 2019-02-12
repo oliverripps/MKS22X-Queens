@@ -134,8 +134,8 @@ public class QueenBoard{
       for(int i=0;i<size;i++){
         if(addQueen(i,col)){
           c+=countSolutionsH(col+1);
-          removeQueen(i,col);
         }
+        removeQueen(i,col);
       }
       clear();
       return c;
