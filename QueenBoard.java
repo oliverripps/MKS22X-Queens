@@ -1,7 +1,7 @@
 public class QueenBoard{
   private int[][] board;
   private int size;
-  public QueenBoard(int s){
+  public QueenBoard(int s){ 
     int[][] b = new int[s][s];
     board=b;//intitializing instance variables
     size=s;
