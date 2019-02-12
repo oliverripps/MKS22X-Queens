@@ -104,19 +104,18 @@ public class QueenBoard{
     return(solveR(0));
   }
   public int countSolutions(){
-    return (countSolutionsH(0,0));
+    return (countSolutionsH(0));
 
   }
-  public int countSolutionsH(int col, int count){
-    if(col==size){
-      count++;
+  public int countSolutionsH(int col){
+    if(col>=size){
+      return 1;
     }
+    int c=0;
     else{
       for(int i=0;i<size;i++){
         if(addQueen(i,col)){
-          if(solveR(col+1)){
-            count++;
-          }
+          c+= countSolutionsH(col+1);
           removeQueen(i,col);
         }
       }
