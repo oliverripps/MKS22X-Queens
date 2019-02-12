@@ -107,20 +107,31 @@ public class QueenBoard{
     return (countSolutionsH(0));
 
   }
+
+  private boolean check(){
+    for(int i==0;i<size;i++){
+      for(int l==0;l<size;l++){
+        if(board[i][l]!=0){
+          return false;
+        }
+      }
+    }
+    return true;
+  }
   public int countSolutionsH(int col){
+    int c=0;
     if(col>=size){
       return 1;
     }
-    int c=0;
     else{
       for(int i=0;i<size;i++){
         if(addQueen(i,col)){
-          c+= countSolutionsH(col+1);
+          c+=CountSolutionsH(col+1);
           removeQueen(i,col);
         }
       }
     }
-      return count;
+    return c;
   }
 
   public void clear(){
